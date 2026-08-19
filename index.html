@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Dynamic Capsule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #18181c;
+            --card-border: #26262b;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --accent-color: #3f8cff;
+            --accent-glow: rgba(63, 140, 255, 0.15);
+            --success-color: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 12px 24px;
+            border-radius: 99px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-capsule {
+            width: 40px;
+            height: 18px;
+            background-color: var(--text-primary);
+            border-radius: 9px;
+            margin-right: 12px;
+            position: relative;
+        }
+
+        .logo-capsule::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            top: 6px;
+            left: 17px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+        }
+
+        h2 svg {
+            color: var(--accent-color);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        p strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background-color: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .highlight-box svg {
+            color: var(--success-color);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .permissions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .permission-card {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .permission-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .permission-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .permission-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background-color: rgba(63, 140, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .permission-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+        }
+
+        .permission-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .contact-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-capsule"></div>
+                <div class="logo-text">Dynamic Capsule</div>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Plain-English privacy terms for the Dynamic Capsule app.</p>
+            <p class="last-updated">Last updated: August 19, 2026</p>
+        </header>
+
+        <main>
+            <!-- Core Promise Section -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Our Core Promise
+                </h2>
+                <div class="highlight-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <p>Dynamic Capsule is designed to run 100% locally on your phone. We do not have servers, we do not track your activity, and we never collect, store, sell, or share your personal data.</p>
+                </div>
+                <p>When you use Dynamic Capsule, all information processed to create the interactive capsule interface (like notifications, music metadata, or incoming call alerts) is read, transformed, and displayed immediately on your screen. None of this data is saved to a file, and none of it is sent over the internet.</p>
+            </section>
+
+            <!-- Permissions Section -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    How We Use Permissions
+                </h2>
+                <p>To recreate the notch utility experience, Android requires the app to ask for specific permissions. Here is a simple explanation of what they do and why they are necessary:</p>
+                
+                <div class="permissions-grid">
+                    <!-- Over Other Apps -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                            </div>
+                            <div class="permission-title">Show Over Other Apps</div>
+                        </div>
+                        <div class="permission-desc">Allows the capsule to sit at the top of your screen, floating above whatever app you are currently using, so you can always see and interact with it.</div>
+                    </div>
+
+                    <!-- Notification Listener -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            </div>
+                            <div class="permission-title">Notification Access</div>
+                        </div>
+                        <div class="permission-desc">Allows the app to read notifications as they arrive, so we can temporarily format and show them to you inside the capsule. The content is never saved or sent anywhere.</div>
+                    </div>
+
+                    <!-- Phone Calls -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="permission-title">Read Phone State</div>
+                        </div>
+                        <div class="permission-desc">Allows the app to detect incoming phone calls so it can display the caller's name and give you quick action buttons (answer/decline) directly in the capsule.</div>
+                    </div>
+
+                    <!-- Bluetooth -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></svg>
+                            </div>
+                            <div class="permission-title">Bluetooth Connect</div>
+                        </div>
+                        <div class="permission-desc">Allows the capsule to show a quick status message when you connect accessories like Bluetooth earbuds or smartwatches.</div>
+                    </div>
+
+                    <!-- Background Service -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <div class="permission-title">Run in Background</div>
+                        </div>
+                        <div class="permission-desc">Needed so the Android system does not kill the capsule utility service when you close the main settings screen or put your phone in standby.</div>
+                    </div>
+
+                    <!-- Boot Completed -->
+                    <div class="permission-card">
+                        <div class="permission-header">
+                            <div class="permission-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.886H3.894l4.948 3.596L6.93 18.368 12 14.772l5.07 3.596-1.912-5.886 4.948-3.596h-6.194L12 3Z"/></svg>
+                            </div>
+                            <div class="permission-title">Start on Startup</div>
+                        </div>
+                        <div class="permission-desc">Automatically starts the capsule service once your phone boots up, so you don't have to manually launch the app every time you restart.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Security -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Data Storage & Security
+                </h2>
+                <p>Since we do not collect, transmit, or save any data, there is no personal data stored on servers. The app works strictly on your phone, meaning your privacy is fully protected under Android's built-in operating system security barriers.</p>
+            </section>
+
+            <!-- Children's Privacy -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Children's Privacy
+                </h2>
+                <p>Our app is safe for everyone. We do not gather, store, or share information from anyone, including children under the age of 13. Parents can rest easy knowing that no information is being harvested or communicated back to us or any advertisers.</p>
+            </section>
+
+            <!-- Changes to this policy -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    Changes to this Policy
+                </h2>
+                <p>We may update this privacy policy from time to time. When we make updates, we will change the "Last updated" date at the top of this page. We encourage you to check this page periodically for any changes.</p>
+            </section>
+
+            <!-- Contact Section -->
+            <section>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Contact Us
+                </h2>
+                <p>If you have any questions or feedback regarding this privacy policy or our app's privacy practices, please feel free to reach out to us at:</p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:mecorven@gmail.com" class="contact-link">support@mecorven.com</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Mecorven. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
